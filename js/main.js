@@ -25,7 +25,7 @@
                 data: $(this).serialize(),
                 success: function(response){
                     if (response == true) {
-                        window.location = 'index.php';
+                        window.location = 'dashboard.php';
                     }else {
                         // alert('Invalid Credentials');
                         document.getElementById("auth_failure_txt").innerHTML = "Invalid Credentials. Please try again.";

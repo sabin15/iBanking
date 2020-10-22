@@ -101,6 +101,15 @@
               </div>
             </div>
           </form>
+          <div class="text-center p-t-45 p-b-4">
+						<span class="txt1">
+							Already have account ?
+						</span>
+
+						<a href="login.php" class="txt2 hov1">
+							Sign In
+						</a>
+					</div>
 				
 		</div>
 	</div>
