@@ -21,7 +21,7 @@
           			</div>
 
 					<div class="text-center">
-						<span class="txt1" id="auth_failure_txt">
+						<span class="auth_failure" id="auth_failure_txt">
 							
 						</span>
 					</div>
@@ -49,7 +49,7 @@
 							Create an account?
 						</span>
 
-						<a href="#" class="txt2 hov1">
+						<a href="register.php" class="txt2 hov1">
 							Sign up
 						</a>
 					</div>
