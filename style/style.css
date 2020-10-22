@@ -1,0 +1,107 @@
+.showcase{
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  z-index: -5;
+  /*-webkit-filter: blur(2px);  //Safari 6.0 - 9.0
+  filter: blur(2px);
+  }
+  */
+}
+.login-form{
+  padding: 5px;
+  margin:auto;
+  text-align: center;
+  align-items: center;
+}
+
+.unit-header{
+  background-color: rgb(41,48,59);
+
+}
+
+.unit-header h2{
+  font-size: 40px;
+}
+
+.unit-details, .enroll-form{
+  background-color: rgb(249,249,248);
+  border: 1px solid #dedfe0
+}
+
+.enroll-box, .unit-summary{
+  background-color: rgb(249,249,248);
+  border: 1px solid #dedfe0
+}
+
+.enroll-btn{
+  width: 250px;
+  height: 75px;
+  position: relative;
+  left: 18%;
+  font-size-adjust: auto;
+}
+
+
+.staff_detail_box{
+  border: 2px solid #dedfe0;
+ 
+}
+
+
+.showcase{
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+  z-index: -5;
+  /*-webkit-filter: blur(2px);  //Safari 6.0 - 9.0
+  filter: blur(2px);
+  }
+  */
+}
+.login-form{
+  padding: 5px;
+  margin:auto;
+  text-align: center;
+  align-items: center;
+}
+
+.unit-header{
+  background-color: rgb(41,48,59);
+
+}
+
+.unit-header h2{
+  font-size: 40px;
+}
+
+.unit-details, .enroll-form{
+  background-color: rgb(249,249,248);
+  border: 1px solid #dedfe0
+}
+
+.enroll-box, .unit-summary{
+  background-color: rgb(249,249,248);
+  border: 1px solid #dedfe0
+}
+
+.enroll-btn{
+  width: 250px;
+  height: 75px;
+  position: relative;
+  left: 18%;
+  font-size-adjust: auto;
+}
+
+.staff_detail_box{
+  border: 2px solid #dedfe0;
+}
+
+
+.nav-username{
+  float: right;
+  position: relative;
+  left: 50px;
+}
