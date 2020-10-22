@@ -7,7 +7,8 @@
     [ Validate ]*/
     var input = $('.validate-input .input100');
 
-    $('.validate-form').on('submit',function(){
+    $('.validate-form').on('submit',function(e){
+        e.preventDefault();
         var check = true;
 
         for(var i=0; i<input.length; i++) {
@@ -16,7 +17,45 @@
                 check=false;
             }
         }
-
+        
+        if(check){
+            $.ajax({
+                type: "POST",
+                url: 'http://127.0.0.1/ibanking/controller/login.php',
+                data: $(this).serialize(),
+                success: function(response){
+                    if (response == true) {
+                        window.location = 'http://www.google.com';
+                    }else {
+                        // alert('Invalid Credentials');
+                        document.getElementById("auth_failure_txt").innerHTML = "Invalid Credentials. Please try again.";
+                        console.log(response);
+                    }
+                },
+                fail: function(){
+                    alert("Failed");
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                    alert(msg);
+                }
+            });
+        }
         return check;
     });
 
@@ -24,6 +63,7 @@
     $('.validate-form .input100').each(function(){
         $(this).focus(function(){
            hideValidate(this);
+           
         });
     });
 

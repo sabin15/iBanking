@@ -355,6 +355,7 @@ input.input100 {
 .validate-input {
   position: relative;
 }
+
 .alert-validate::before {
   content: attr(data-validate);
   position: absolute;
@@ -378,8 +379,8 @@ input.input100 {
   line-height: 1.4;
   text-align: left;
 
-  visibility: visible;
-  opacity: 0.5;
+  visibility: hidden;
+  opacity: 0;
 
   -webkit-transition: opacity 0.4s;
   -o-transition: opacity 0.4s;
@@ -388,7 +389,7 @@ input.input100 {
 }
 
 .alert-validate::after {
-  content: "!";
+  content: "\f12a";
   font-family: FontAwesome;
   display: block;
   position: absolute;
@@ -403,15 +404,17 @@ input.input100 {
   right: 18px;
 }
 
+
+
 @media (max-width: 992px) {
-  .alert-validate:hover:before {
+  .alert-validate::before {
     visibility: visible;
     opacity: 1;
   }
 }
 
 .alert-validate:hover:before {
-  visibility: none;
+  visibility: visible;
   opacity: 1;
 }
 
