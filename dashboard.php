@@ -1,4 +1,5 @@
 <?php
+include 'controller/get_account_details.php';
     if(!isset($_SESSION)) 
     { 
         session_start();
@@ -140,7 +141,7 @@
                         <div class="card">
                             <h5 class="card-header">Account</h5>
                             <div class="card-body">
-                              <h5 class="card-title">$5,040.23</h5>
+                              <h5 class="card-title"><?php echo '$'. number_format(get_account_balance($_SESSION['account_number']))?></h5>
                               <!-- <p class="card-text">Feb 1 - Apr 1, United States</p> -->
                               <p class="card-text text-success">Total Balance</p>
                             </div>
@@ -160,7 +161,7 @@
                         <div class="card">
                             <h5 class="card-header">Interest</h5>
                             <div class="card-body">
-                              <h5 class="card-title">7%</h5>
+                              <h5 class="card-title"><?php echo get_interest($_SESSION['account_number']). "%"?></h5>
                               <!-- <p class="card-text">Feb 1 - Apr 1, United States</p> -->
                               <p class="card-text text-success">Rate of Interest</p>
                             </div>
@@ -177,80 +178,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 col-xl-12 mb-4 mb-lg-0">
-                        <div class="card">
-                            <h5 class="card-header">Latest transactions</h5>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Balance</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col"></th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                </div>
-                                <a href="#" class="btn btn-block btn-light">View all</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php include('includes/transactions.php')?>
                 <div class="row">
                   <div class="col-12 col-xl-12">
                           <div class="card">
@@ -285,7 +213,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script>
         new Chartist.Line('#traffic-chart', {
-            labels: ['January', 'Februrary', 'March', 'April', 'May', 'June','July','August','Sep','Oct','Nov','Dec'],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June','July','August','Sep','Oct','Nov','Dec'],
             series: [
                 [23000, 25000, 19000, 34000, 56000, 64000,95000,65000,34000,55000,88000,78900,55789]
             ]
