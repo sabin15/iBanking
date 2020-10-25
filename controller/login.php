@@ -1,9 +1,9 @@
 <?php
     include ('db_connect.php');
-    if($_POST){      
-      $email=mysqli_escape_string($conn,$_POST['email']);
-      $password=mysqli_escape_string($conn,$_POST['pass']);
-      $user_check_query = "SELECT * FROM customer WHERE email='$email'  LIMIT 1";
+    if($_POST){
+          $email=mysqli_escape_string($conn,$_POST['email']);
+          $password=mysqli_escape_string($conn,$_POST['pass']);
+          $user_check_query = "SELECT * FROM customer WHERE email='$email'  LIMIT 1";
       
 
       $result = mysqli_query($conn, $user_check_query);
@@ -14,10 +14,11 @@
             $auth=password_verify($password, $user['password']);
             if ($auth) {
                 session_start();
+                $_SESSION['account_number'] = $user['account'];
                 $_SESSION['username'] = $user['name'];
                 $_SESSION['logged'] = true;
                 echo true;
-                //header("Location:/udw/index.php");
+
                   
             } else {
                 echo false;

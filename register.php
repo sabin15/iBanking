@@ -77,7 +77,7 @@
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
-              <input type="text" class="form-control" id="customer-dob" name="customer-dob" placeholder="MM/DD/YYYY" />
+              <input type="text" class="form-control" id="customer-dob" name="customer-dob" placeholder="DD/MM/YYYY" />
               </div>
             </div>
             </div>
