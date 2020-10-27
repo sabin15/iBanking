@@ -15,8 +15,16 @@ include 'controller/get_account_details.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap 5 Simple Admin Dashboard</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <style>
         .sidebar {
             position: fixed;
@@ -179,6 +187,161 @@ include 'controller/get_account_details.php';
                     </div>
                 </div>
                 <?php include('includes/transactions.php')?>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Transaction Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <!-- Transaction Detail ======================================================================================== -->
+                        <div class="row p-t-5 p-b-5">
+                          <div class="col-md-3">
+                            <h6 class="payment_txt">Transaction Details</h6>
+                          </div>
+                          <div class="col-md-9">
+                              <hr>
+                              
+                          </div>
+                        </div>
+                          <div class="row p-t-5 p-b-5">
+                            <!-- Transaction ID -->
+
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Transaction ID</span> <br>
+                              <span id="trans_id"></span>
+                            </div>
+
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Transaction Date -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Transaction Date</span> <br>
+                              <span id="trans_date"></span>
+                            </div>
+                          </div>
+
+                          <div class="row p-t-5 p-b-5">
+                            <!-- Currency -->
+
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Currency</span> <br>
+                              <span>AUD</span>
+                            </div>
+
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Transaction Amount -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Amount</span> <br>
+                              <span id="trans_amount"></span>
+                              <br><br>
+                            </div>
+                            
+                          </div>
+                          <!-- End Transaction Detail =====================================================================================-->
+
+
+
+                          <!-- Sender Details =============================================================================================-->
+                          <div class="row p-t-5 p-b-5">
+                            <div class="col-md-3">
+                                <h6 class="payment_txt">Sender Details</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <hr>
+                                <br>
+                            </div>
+                          </div>
+
+                          <div class="row p-t-5 p-b-5">
+                            <!-- Bank Name -->
+
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Bank Name</span> <br>
+                              <span>Bank of Australia</span>
+                            </div>
+
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Account Number -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Account Number</span> <br>
+                              <span id="sender_acc_number"></span>
+                            </div>
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Account Name -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Account Name</span> <br>
+                              <span>Sabin Shrestha</span>
+                              <br><br>
+                            </div>
+                          </div>     
+                          <!-- End Sender Details =============================================================================================-->   
+
+                          <!-- Receiver Details =============================================================================================-->
+                          <div class="row p-t-5 p-b-5">
+                            <div class="col-md-3">
+                                <h6 class="payment_txt">Receiver Details</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <hr>
+                                <br>
+                            </div>
+                          </div>
+
+                          <div class="row p-t-5 p-b-5">
+                            <!-- Bank Name -->
+
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Bank Name</span> <br>
+                              <span>Bank of Australia</span>
+                            </div>
+
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Account Number -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Account Number</span> <br>
+                              <span id="receiver_acc_number"></span>
+                            </div>
+
+                            <div class="col-md-1">
+                            </div>
+
+                            <!-- Account Name -->
+                            <div class="col-md-3">
+                              <span class="trans_view_title">Account Name</span> <br>
+                              <span>Prashant Pokhrel</span>
+                            </div>
+                          </div>     
+                          <!-- End Receiver Details =============================================================================================-->         
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
                 <div class="row">
                   <div class="col-12 col-xl-12">
                           <div class="card">
