@@ -127,8 +127,12 @@ iframe {
 }
 
 .payment_txt{
-  color: #800f00;
+  color: #c43f01;
 
+}
+.trans_view_title{
+  font-weight: bold;
+  color: #c43f01;
 }
 
 
