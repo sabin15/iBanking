@@ -77,7 +77,7 @@
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
-              <input type="text" class="form-control" id="customer-dob" name="customer-dob" placeholder="MM/DD/YYYY" />
+              <input type="text" class="form-control" id="customer-dob" name="customer-dob" placeholder="DD/MM/YYYY" />
               </div>
             </div>
             </div>
@@ -131,7 +131,7 @@
       {       
           if (response == true) {
             alert("data added successsfully");
-            window.location = 'login.php';
+            window.location = 'http://127.0.0.1/ibanking/login.php';
           }
           else {
             alert(response);

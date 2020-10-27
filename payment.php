@@ -14,8 +14,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap 5 Simple Admin Dashboard</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>  
+    
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <style>
         .sidebar {
             position: fixed;
@@ -95,13 +102,13 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="#">
+                          <a class="nav-link" href="cards.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                             <span class="ml-2">Cards</span>
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="payment.php">
+                          <a class="nav-link active" href="payment.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                             <span class="ml-2">Payments</span>
                           </a>
@@ -180,87 +187,115 @@
                 <div class="row">
                     <div class="col-12 col-xl-12 mb-4 mb-lg-0">
                         <div class="card">
-                            <h5 class="card-header">Latest transactions</h5>
+                            <h5 class="card-header">Fund Transfer</h5>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                          <tr>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Type</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">Balance</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col"></th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                          <tr>
-                                            <th scope="row">Nov 19 2020, 4:15:01 pm</th>
-                                            <td>Debit</td>
-                                            <td>$105.67</td>
-                                            <td>$2700</td>
-                                            <td>Processed</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
+                            <form class="form-horizontal" method='post' action="#" enctype="multipart/form-data" id="payment_form">
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        
+                                        <div class="col-md-2">
+                                            <h6 class="payment_txt">SENDER DETAILS</h6>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <hr>
+                                            <br>
+                                        </div>
+                                    </div>
+                                    <div class="row p-t-5 p-b-5">
+                                        <div class="col-md-2">
+                                            <label for="account_number"> Account Number </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" name="sender_account_number" value="<?php echo $_SESSION['account_number'];?>" readonly="readonly" />
+                                        </div>
+
+                                        <div class="col-md-1">                                        
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label for="account_number"> Transaction Amount </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" name="transaction_amount">
+                                        </div>
+                                        <br><br><br><br><br>
+                                    </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <br><br>
+                                        <div class="col-md-2">
+                                            <h6>BENEFICIARY DETAILS</h6>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="row p-t-5 p-b-5">
+                                        <div class="col-md-2">
+                                            <label for="account_number"> Account Number </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" name="beneficiary_acount_number">
+                                        </div>
+
+                                        <div class="col-md-1">                                        
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label for="account_number"> Account Name </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" name="beneficiary_account_name">
+                                        </div>
+                                    </div>
+                                    <div class="row p-t-5 p-b-5">
+                                        <div class="col-md-2">
+                                            <label for="Beneficiary_bank"> Bank Name </label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <select class="form-control beneficiary_bank_name" searchable="Search here.." name="beneficiary_bank_name">
+                                                <option value="" disabled selected>Bank Name</option>
+                                                <option value="1">Common Wealth Bank</option>
+                                                <option value="2">National Australian Bank (NAB)</option>
+                                                <option value="3">Westpac Bank</option>
+                                                <option value="4">Bank of Queensland</option>
+                                                <option value="4">Macquarie Bank</option>
+                                                <option value="5">Bendigo Bank</option>
+                                            </select>        
+                                        </div>
+
+                                        <div class="col-md-1">                                        
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <label for="account_number"> Transaction Detail </label>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" name="transaction_detail">
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <a href="#" class="btn btn-block btn-light">View all</a>
-                            </div>
+
+                                <div class="form-group">
+                                    <div class="row p-t-20 p-b-20">
+                                        <div class="col-md-9"></div>
+
+                                        <div class="col-md-2">
+                                            <input type="submit" value="Transfer" class="btn btn-success btn-lg btn-block">
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                  <div class="col-12 col-xl-12">
-                          <div class="card">
-                              <h5 class="card-header">Transaction this year</h5>
-                              <div class="card-body">
-                                  <div id="traffic-chart"></div>
-                              </div>
-                          </div>
-                      </div>
-                </div>
+                
                 <footer class="pt-5 d-flex justify-content-between">
                     <span>Copyright © 2019-2020 </span>
                     <ul class="nav m-0">
@@ -283,16 +318,33 @@
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script>
-        new Chartist.Line('#traffic-chart', {
-            labels: ['January', 'Februrary', 'March', 'April', 'May', 'June','July','August','Sep','Oct','Nov','Dec'],
-            series: [
-                [23000, 25000, 19000, 34000, 56000, 64000,95000,65000,34000,55000,88000,78900,55789]
-            ]
-            }, {
-            low: 0,
-            showArea: true
-        });
-    </script>
+    
+
+<script>
+  $(document).ready(function() {
+  $('#payment_form').submit(function(e) {
+    e.preventDefault();
+    console.log($(this).serialize());
+    $.ajax({
+      type: "POST",
+      url: 'http://127.0.0.1/ibanking/controller/payment.php',
+      data: $(this).serialize(),
+      success: function(response)
+      {       
+          if (response == true) {
+            alert("transaction successsful");
+            window.location = 'http://127.0.0.1/ibanking/payment.php';
+          }
+          else {
+            alert(response);
+          }
+      }
+  });
+});
+});
+  
+</script>
+
+
 </body>
 </html>
