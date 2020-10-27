@@ -9,16 +9,4 @@
 
     }
 
-    function checkBalance($account_number){
-        $balance_check_query = "SELECT * FROM account";
-        $result = mysqli_query($conn, $balance_check_query);
-        $customer = mysqli_fetch_assoc($result);
-        if($customer){
-            echo $customer['interest'];
-
-        }else{
-            echo "Invalid Account Number: ".$customer;
-        }
-    }
-
 ?>

@@ -8,7 +8,7 @@ $database_name = "ibanking";
 $conn = new mysqli($server_name, $user_name, $password,$database_name);
 
 $account_number = $_SESSION['account_number'];
-$query = "SELECT * FROM transaction WHERE sender_acc_number= $account_number ORDER BY timestamp DESC";
+$query = "SELECT * FROM transaction WHERE sender_acc_number= $account_number";
 
 if ($result = $conn->query($query)) {
 
